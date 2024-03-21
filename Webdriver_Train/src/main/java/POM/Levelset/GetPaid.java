@@ -23,11 +23,15 @@ public class GetPaid {
 
         By documentPrice_Selector = new By.ByXPath("//span[@class='price-amount'][contains(.,'$149')]");
         By sendDocument = new By.ByXPath("(//div[@class='panel panel--doc-type panel--selectable']/div[@class='panel-heading left-right-pair']/div[@class='left'])[3]");
+
         WebElement expectedElement =driver.findElement(sendDocument);
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(expectedElement));
+
         WebElement documentPrice = driver.findElement(documentPrice_Selector);
-        WebDriverWait waitForDocument = new WebDriverWait(driver, Duration.ofSeconds(30));
-        waitForDocument.until(ExpectedConditions.visibilityOf(expectedElement));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(documentPrice));
+
         Assert.assertEquals(expectedElement.getText(),"Release a Lien","element not found");
+
         return documentPrice.getText();
     }
 

@@ -23,6 +23,7 @@ public class BaseTests {
         Assert.assertEquals(getPaid.sendDocument(),"$149","Price is not the same");
 
 
+
     }
 
 

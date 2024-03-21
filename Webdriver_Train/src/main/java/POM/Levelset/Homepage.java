@@ -31,9 +31,9 @@ public class Homepage {
     public GetPaid clickOnGetPaid(){
 
         WebElement getPaidButton= driver.findElement(getPaid_Selector);
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(getPaidButton));
+
         getPaidButton.click();
-        //WebDriverWait waitForClick = new WebDriverWait(driver, Duration.ofSeconds(30));
-        //waitForClick.until(ExpectedConditions.visibilityOf(getPaidButton));
         return new GetPaid(driver);
     }
 
